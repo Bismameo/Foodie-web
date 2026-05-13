@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - foodie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="menu-page">
+    <nav class="menu">
+        <div class="menu-items">
+            <a href="index.html">Home</a>
+            <a href="index.html#menu">Menu</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="contact.html" class="active">Contact Us</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <a href="index.html" class="logo-text">foo<span>die</span></a>
+        <div class="nav-buttons">
+            <div class="cart-container">
+                <a href="checkout.html" class="cart-link">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Login</a>
+                <a href="signup.html" class="btn2">SignUp</a>
+            </div>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="contact-section">
+        <div class="contact-content">
+            <h2>Get in Touch with foo<span>die</span></h2>
+            <p>We'd love to hear from you! Whether you have a question, feedback, or a reservation request, please reach
+                out to us.</p>
+
+            <div class="contact-details">
+                <div class="detail-item">
+                    <h3>Our Location</h3>
+                    <p>123 Spice Route, foodie City, FC 45678</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Phone Number</h3>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Email Address</h3>
+                    <p>info@foodie.com</p>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h2>Send Us a Message</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Refunds with pandapay</a></li>
+                        <li><a href="#">pandapay Terms and Conditions</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Cashback Terms and Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Corporate</h4>
+                    <ul>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Human rights policy</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Suggest a Restaurant</a></li>
+                        <li><a href="#">Corporate Customer</a></li>
+                        <li><a href="#">Become an Affiliate</a></li>
+                        <li><a href="#">Partner with Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Discover</h4>
+                    <ul>
+                        <li><a href="#">All cuisines</a></li>
+                        <li><a href="#">foodie Magazine</a></li>
+                        <li><a href="#">All cities</a></li>
+                        <li><a href="#">pandapro - Subscription Programme</a></li>
+                        <li><a href="#">foodie Home Chef</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Areas Delivered In</h4>
+                    <ul>
+                        <li><a href="#">Karachi</a></li>
+                        <li><a href="#">Lahore</a></li>
+                        <li><a href="#">Islamabad</a></li>
+                    </ul>
+                    <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Download Apps</h4>
+                    <div class="app-downloads">
+                        <a href="#" class="app-btn"><span>🍎</span> App Store</a>
+                        <a href="#" class="app-btn"><span>🤖</span> Play Store</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo-copyright">
+                    <a href="index.html" class="logo-text">foo<span>die</span></a>
+                    <p>&copy; 2026 foodie. All rights reserved.</p>
+                </div>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-icon">f</a>
+                    <a href="#" class="footer-social-icon">t</a>
+                    <a href="#" class="footer-social-icon">i</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menuItems = document.querySelector('.menu-items');
+        const navButtons = document.querySelector('.nav-buttons');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            menuItems.classList.toggle('active');
+            navButtons.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
