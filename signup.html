@@ -7,31 +7,108 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="auth-page"> 
+    <header class="site-header">
+        <nav class="menu">
+            <a href="index.html" class="logo-text">foo<span>die</span></a>
+            
+            <div class="menu-items">
+                <a href="index.html">Home</a>
+                <a href="about.html">Our Story</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="nav-actions">
+                <div class="cart-container">
+                    <a href="checkout.html" class="cart-link">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">3</span>
+                    </a>
+                </div>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="signup.html" class="btn2 active">Sign Up</a>
+                </div>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <div class="nav-overlay" id="nav-overlay"></div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <a href="index.html" class="logo-text">foo<span>die</span></a>
+                <span class="close-menu" id="close-menu">&times;</span>
+            </div>
+            
+            <ul class="mobile-links">
+                <li><a href="index.html"><span>🏠</span> Home</a></li>
+                <li><a href="about.html"><span>📖</span> Our Story</a></li>
+                <li><a href="reviews.html"><span>⭐</span> Reviews</a></li>
+                <li><a href="contact.html"><span>📞</span> Contact Us</a></li>
+            </ul>
+
+            <div class="mobile-actions">
+                <a href="checkout.html" class="mobile-action-item">
+                    <span>🛒</span> My Cart <span class="cart-count" style="position: static; margin-left: auto;">3</span>
+                </a>
+                <div class="mobile-auth">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="signup.html" class="btn2 active">Create Account</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <div class="auth-container">
         <form action="login.html" method="get" class="auth-form">
             <div class="form-header">
-                <a href="index.html" class="logo-text">foo<span>die</span></a>
+                <h2>Create Account</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Join foodie and start ordering delicious meals</p>
             </div>
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" placeholder="Choose a username" required>
             </div>
             <div class="form-group"> 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group"> 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
             </div>
             <div class="form-group">
                 <label for="confirmpassword">Confirm Password:</label>
-                <input type="password" id="confirmpassword" name="confirmpassword" required>
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm your password" required>
             </div>
             <button type="submit" class="btn">Sign Up</button>
             <p class="form-footer">Already have an account? <a href="login.html">Login</a></p>
         </form>
     </div>
+
+    <script>
+        // Unified Navigation Logic
+        const hamburger = document.getElementById('hamburger');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const navOverlay = document.getElementById('nav-overlay');
+
+        const toggleMenu = () => {
+            mobileNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+        };
+
+        hamburger.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+    </script>
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -87,7 +164,7 @@
             <div class="footer-bottom">
                 <div class="footer-logo-copyright">
                     <a href="index.html" class="logo-text">foo<span>die</span></a>
-                    <p>&copy; 2026 foodie. All rights reserved.</p>
+                
                 </div>
                 <div class="footer-socials">
                     <a href="#" class="footer-social-icon">f</a>

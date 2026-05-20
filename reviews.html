@@ -7,34 +7,63 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="menu-page">
-    <nav class="menu">
-        <div class="menu-items">
-            <a href="index.html">Home</a>
-            <a href="index.html#menu">Menu</a>
-            <a href="reviews.html" class="active">Reviews</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="about.html">About Us</a>
-        </div>
-        <a href="index.html" class="logo-text">foo<span>die</span></a>
-        <div class="nav-buttons">
-            <div class="cart-container">
-                <a href="checkout.html" class="cart-link">
-                    <span class="cart-icon">🛒</span>
-                    <span class="cart-count">3</span>
-                </a>
+    <header class="site-header">
+        <nav class="menu">
+            <a href="index.html" class="logo-text">foo<span>die</span></a>
+            
+            <div class="menu-items">
+                <a href="index.html">Home</a>
+                <a href="about.html">Our Story</a>
+                <a href="reviews.html" class="active">Reviews</a>
+                <a href="contact.html">Contact Us</a>
             </div>
-            <div class="auth-buttons">
-                <a href="login.html" class="btn">Login</a>
-                <a href="signup.html" class="btn2">SignUp</a>
-            </div>
-        </div>
 
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <div class="nav-actions">
+                <div class="cart-container">
+                    <a href="checkout.html" class="cart-link">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">3</span>
+                    </a>
+                </div>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="signup.html" class="btn2">Sign Up</a>
+                </div>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <div class="nav-overlay" id="nav-overlay"></div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <a href="index.html" class="logo-text">foo<span>die</span></a>
+                <span class="close-menu" id="close-menu">&times;</span>
+            </div>
+            
+            <ul class="mobile-links">
+                <li><a href="index.html"><span>🏠</span> Home</a></li>
+                <li><a href="about.html"><span>📖</span> Our Story</a></li>
+                <li><a href="reviews.html" class="active"><span>⭐</span> Reviews</a></li>
+                <li><a href="contact.html"><span>📞</span> Contact Us</a></li>
+            </ul>
+
+            <div class="mobile-actions">
+                <a href="checkout.html" class="mobile-action-item">
+                    <span>🛒</span> My Cart <span class="cart-count" style="position: static; margin-left: auto;">3</span>
+                </a>
+                <div class="mobile-auth">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="signup.html" class="btn2">Create Account</a>
+                </div>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <main class="review-section">
         <div class="review-content">
@@ -155,7 +184,7 @@
             <div class="footer-bottom">
                 <div class="footer-logo-copyright">
                     <a href="index.html" class="logo-text">foo<span>die</span></a>
-                    <p>&copy; 2026 foodie. All rights reserved.</p>
+                    
                 </div>
                 <div class="footer-socials">
                     <a href="#" class="footer-social-icon">f</a>
@@ -167,14 +196,29 @@
     </footer>
 
     <script>
+        // Unified Navigation Logic
         const hamburger = document.getElementById('hamburger');
-        const menuItems = document.querySelector('.menu-items');
-        const navButtons = document.querySelector('.nav-buttons');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const navOverlay = document.getElementById('nav-overlay');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            menuItems.classList.toggle('active');
-            navButtons.classList.toggle('active');
+        const toggleMenu = () => {
+            mobileNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+        };
+
+        hamburger.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
         });
     </script>
 </body>

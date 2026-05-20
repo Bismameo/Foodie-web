@@ -13,30 +13,23 @@
         <nav class="menu">
             <a href="index.html" class="logo-text">foo<span>die</span></a>
             
-            <div class="location-selector">
-                <span class="location-icon">📍</span>
-                <input type="text" placeholder="Enter your delivery address..." value="Islamabad, Pakistan">
+            <div class="menu-items">
+                <a href="index.html">Home</a>
+                <a href="about.html">Our Story</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact Us</a>
             </div>
 
-            <div class="nav-buttons">
+            <div class="nav-actions">
                 <div class="cart-container">
                     <a href="checkout.html" class="cart-link active">
                         <span class="cart-icon">🛒</span>
                         <span class="cart-count">3</span>
                     </a>
                 </div>
-                <div class="user-menu-container" id="user-menu-btn">
-                    <div class="user-icon">👤</div>
-                    <div class="user-dropdown" id="user-dropdown">
-                        <a href="#">My Profile</a>
-                        <a href="#">My Orders</a>
-                        <a href="#">Favorites</a>
-                        <a href="login.html">Logout</a>
-                    </div>
-                </div>
                 <div class="auth-buttons">
                     <a href="login.html" class="btn">Login</a>
-                    <a href="signup.html" class="btn2">SignUp</a>
+                    <a href="signup.html" class="btn2">Sign Up</a>
                 </div>
             </div>
 
@@ -46,6 +39,32 @@
                 <span></span>
             </div>
         </nav>
+
+        <div class="nav-overlay" id="nav-overlay"></div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <a href="index.html" class="logo-text">foo<span>die</span></a>
+                <span class="close-menu" id="close-menu">&times;</span>
+            </div>
+            
+            <ul class="mobile-links">
+                <li><a href="index.html"><span>🏠</span> Home</a></li>
+                <li><a href="about.html"><span>📖</span> Our Story</a></li>
+                <li><a href="reviews.html"><span>⭐</span> Reviews</a></li>
+                <li><a href="contact.html"><span>📞</span> Contact Us</a></li>
+            </ul>
+
+            <div class="mobile-actions">
+                <a href="checkout.html" class="mobile-action-item active">
+                    <span>🛒</span> My Cart <span class="cart-count" style="position: static; margin-left: auto;">3</span>
+                </a>
+                <div class="mobile-auth">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="signup.html" class="btn2">Create Account</a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main class="checkout-section">
@@ -62,7 +81,7 @@
                     <div id="cart-items-display" class="cart-items-list">
                         <!-- Static UI Examples -->
                         <div class="cart-item">
-                            <img src="./assets/briyani1.jpg" alt="Special Biryani">
+                            <img src="./public/assets/briyani1.jpg" alt="Special Biryani">
                             <div class="cart-item-info">
                                 <h4>Special Biryani</h4>
                                 <p class="cart-item-price">$12.99 x 1</p>
@@ -74,7 +93,7 @@
                             </div>
                         </div>
                         <div class="cart-item">
-                            <img src="./assets/A crispy golden fried chicken zinger burger.jpg" alt="Zinger Burger">
+                            <img src="./public/assets/A crispy golden fried chicken zinger burger.jpg" alt="Zinger Burger">
                             <div class="cart-item-info">
                                 <h4>Zinger Burger</h4>
                                 <p class="cart-item-price">$7.99 x 2</p>
@@ -138,7 +157,7 @@
             <div class="reveal active">
                 <span style="font-size: 5rem;">🎉</span>
                 <h2 style="font-size: 2.5rem; margin: 1rem 0;">Order Placed Successfully!</h2>
-                <p style="color: #64748b; font-size: 1.1rem;">Your delicious meal is on its way. Track your order below.</p>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Your delicious meal is on its way. Track your order below.</p>
                 
                 <div class="tracking-container">
                     <h3>Live Order Status</h3>
@@ -222,7 +241,7 @@
             <div class="footer-bottom">
                 <div class="footer-logo-copyright">
                     <a href="index.html" class="logo-text">foo<span>die</span></a>
-                    <p>&copy; 2026 foodie. All rights reserved.</p>
+                    
                 </div>
                 <div class="footer-socials">
                     <a href="#" class="footer-social-icon">f</a>
@@ -234,26 +253,23 @@
     </footer>
 
     <script>
+        // Unified Navigation Logic
         const hamburger = document.getElementById('hamburger');
-        const navButtons = document.querySelector('.nav-buttons');
-        const siteHeader = document.querySelector('.site-header');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const navOverlay = document.getElementById('nav-overlay');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navButtons.classList.toggle('active');
-            siteHeader.classList.toggle('mobile-active');
-        });
+        const toggleMenu = () => {
+            mobileNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+        };
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (siteHeader && !siteHeader.contains(e.target) && navButtons.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navButtons.classList.remove('active');
-                siteHeader.classList.remove('mobile-active');
-            }
-        });
+        hamburger.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
 
-        // User Dropdown Toggle
+        // User Dropdown Toggle (Desktop)
         const userBtn = document.getElementById('user-menu-btn');
         const userDropdown = document.getElementById('user-dropdown');
         if(userBtn) {
@@ -261,7 +277,9 @@
                 e.stopPropagation();
                 userDropdown.classList.toggle('active');
             });
-            document.addEventListener('click', () => userDropdown.classList.remove('active'));
+            document.addEventListener('click', () => {
+                if(userDropdown) userDropdown.classList.remove('active');
+            });
         }
 
         // Checkout and Tracking Animation
@@ -270,28 +288,30 @@
         const trackingView = document.getElementById('tracking-view');
         const progressBar = document.getElementById('progress-bar');
 
-        checkoutForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            mainView.style.display = 'none';
-            trackingView.style.display = 'block';
-            window.scrollTo(0, 0);
+        if(checkoutForm) {
+            checkoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                mainView.style.display = 'none';
+                trackingView.style.display = 'block';
+                window.scrollTo(0, 0);
 
-            // Animate Progress
-            setTimeout(() => {
-                progressBar.style.width = '33%';
-                document.getElementById('step-2').classList.add('active');
-            }, 3000);
+                // Animate Progress
+                setTimeout(() => {
+                    progressBar.style.width = '33%';
+                    document.getElementById('step-2').classList.add('active');
+                }, 3000);
 
-            setTimeout(() => {
-                progressBar.style.width = '66%';
-                document.getElementById('step-3').classList.add('active');
-            }, 7000);
+                setTimeout(() => {
+                    progressBar.style.width = '66%';
+                    document.getElementById('step-3').classList.add('active');
+                }, 7000);
 
-            setTimeout(() => {
-                progressBar.style.width = '100%';
-                document.getElementById('step-4').classList.add('active');
-            }, 12000);
-        });
+                setTimeout(() => {
+                    progressBar.style.width = '100%';
+                    document.getElementById('step-4').classList.add('active');
+                }, 12000);
+            });
+        }
     </script>
 </body>
 

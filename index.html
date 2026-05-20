@@ -10,34 +10,26 @@
 
 <body>
     <header class="site-header">
-        <!-- Main Navigation -->
         <nav class="menu">
             <a href="index.html" class="logo-text">foo<span>die</span></a>
-            
-            <div class="location-selector">
-                <span class="location-icon">📍</span>
-                <input type="text" placeholder="Enter your delivery address..." value="Islamabad, Pakistan">
+
+            <div class="menu-items">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">Our Story</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact Us</a>
             </div>
 
-            <div class="nav-buttons">
+            <div class="nav-actions">
                 <div class="cart-container">
                     <a href="checkout.html" class="cart-link">
                         <span class="cart-icon">🛒</span>
                         <span class="cart-count">3</span>
                     </a>
                 </div>
-                <div class="user-menu-container" id="user-menu-btn">
-                    <div class="user-icon">👤</div>
-                    <div class="user-dropdown" id="user-dropdown">
-                        <a href="#">My Profile</a>
-                        <a href="#">My Orders</a>
-                        <a href="#">Favorites</a>
-                        <a href="login.html">Logout</a>
-                    </div>
-                </div>
                 <div class="auth-buttons">
                     <a href="login.html" class="btn">Login</a>
-                    <a href="signup.html" class="btn2">SignUp</a>
+                    <a href="signup.html" class="btn2">Sign Up</a>
                 </div>
             </div>
 
@@ -47,6 +39,40 @@
                 <span></span>
             </div>
         </nav>
+        
+
+        <div class="nav-overlay" id="nav-overlay"></div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <a href="index.html" class="logo-text">foo<span>die</span></a>
+                <span class="close-menu" id="close-menu">&times;</span>
+            </div>
+
+            <div class="mobile-search">
+                <div class="search-box">
+                    <input type="text" placeholder="Search dishes, restaurants...">
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+
+            <ul class="mobile-links">
+                <li><a href="index.html" class="active"><span>🏠</span> Home</a></li>
+                <li><a href="about.html"><span>📖</span> Our Story</a></li>
+                <li><a href="reviews.html"><span>⭐</span> Reviews</a></li>
+                <li><a href="contact.html"><span>📞</span> Contact Us</a></li>
+            </ul>
+
+            <div class="mobile-actions">
+                <a href="checkout.html" class="mobile-action-item">
+                    <span>🛒</span> My Cart <span class="cart-count" style="position: static; margin-left: auto;">3</span>
+                </a>
+                <div class="mobile-auth">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="signup.html" class="btn2">Create Account</a>
+                </div>
+            </div>
+        </div>
 
         <!-- Category Navbar -->
         <nav class="category-nav">
@@ -57,10 +83,6 @@
 
         <!-- Search & Filter Bar -->
         <div class="search-filter-bar">
-            <div class="search-box">
-                <input type="text" placeholder="Search for restaurants, cuisines, and dishes">
-                <button class="search-btn">Search</button>
-            </div>
             <div class="filter-actions">
                 <button class="filter-pill active">Relevance</button>
                 <button class="filter-pill">Fastest delivery</button>
@@ -71,60 +93,45 @@
                 <button class="filter-pill">Open Now</button>
             </div>
         </div>
-
     </header>
 
     <main>
-        <!-- Category Overview Section -->
-        <section class="category-overview reveal">
-            <div class="section-header">
-                <h2>Browse by Category</h2>
-                <p>Explore our wide range of food and essentials</p>
-            </div>
-            <div class="category-grid-alt">
-                <div class="category-card-alt">
-                    <div class="category-img-placeholder" style="background: #fdf2f2;">🍕</div>
-                    <h3>Restaurants</h3>
-                    <p>Favorite brands and local finds</p>
-                </div>
-                <div class="category-card-alt">
-                    <div class="category-img-placeholder" style="background: #f1f5f9;">🍎</div>
-                    <h3>Groceries</h3>
-                    <p>Fresh produce and daily essentials</p>
-                </div>
-                <div class="category-card-alt">
-                    <div class="category-img-placeholder" style="background: #fef3c7;">💊</div>
-                    <h3>Health & Wellness</h3>
-                    <p>Pharmacies and personal care</p>
-                </div>
-                <div class="category-card-alt">
-                    <div class="category-img-placeholder" style="background: #ecfdf5;">🍰</div>
-                    <h3>Bakery & Sweets</h3>
-                    <p>Cakes, desserts and more</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Delivery Category Content -->
         <div id="delivery-content" class="category-content active">
             <!-- Hero Section -->
         <section class="hero-section">
-            <div class="hero-split">
-                <div class="hero-left">
-                    <div class="hero-glass-card reveal">
-                        <div class="hero-content">
-                            <h1>Savor the Authentic <span>Flavors</span> of Home</h1>
-                            <p>Experience a culinary journey through traditional recipes and modern fast-food favorites, delivered fresh to your door.</p>
-                            <div class="hero-cta">
-                                <a href="#featured" class="btn" style="padding: 1rem 2rem; font-size: 1.1rem;">Explore Specials</a>
-                                <a href="about.html" class="btn2" style="padding: 1rem 2rem; font-size: 1.1rem;">Our Story</a>
+            <div class="hero-video-container">
+                <img src="./public/assets/burger.jpg" alt="Delicious Burger" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            
+            <div class="hero-side-panel-container">
+                <div class="hero-side-panel reveal">
+                    <div class="hero-content">
+                        <div class="hero-badge">🛵 Top Rated Delivery</div>
+                        <h1>Delicious food,<br>delivered <span>fast</span></h1>
+                        <p>Your favorite meal from the best restaurants delivered to your doorstep in minutes. Fresh, hot, and reliable.</p>
+                        <div class="hero-cta">
+                            <a href="#featured" class="btn">Explore Specials</a>
+                            <a href="about.html" class="btn2">Our Story</a>
+                        </div>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <strong>1000+</strong>
+                                <span>Restaurants</span>
+                            </div>
+                            <div class="stat-item">
+                                <strong>25 min</strong>
+                                <span>Avg. Delivery</span>
+                            </div>
+                            <div class="stat-item">
+                                <strong>4.9/5</strong>
+                                <span>User Rating</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="hero-right">
-                    <img src="./assets/karahi.jpg" alt="Exquisite Karahi Dish">
-                </div>
+                
             </div>
         </section>
 
@@ -136,34 +143,59 @@
             </div>
             <div class="specialties-grid reveal">
                 <div class="specialty-item large">
-                    <img src="./assets/briyani1.jpg" alt="Special Biryani">
+                    <img src="./public/assets/briyani1.jpg" alt="Special Biryani">
                     <div class="specialty-overlay">
                         <h3>Royal Mutton Biryani</h3>
                         <p>Our signature dish, slow-cooked for 8 hours.</p>
                     </div>
                 </div>
                 <div class="specialty-item">
-                    <img src="./assets/A crispy golden fried chicken zinger burger.jpg" alt="Zinger Burger">
+                    <img src="./public/assets/A crispy golden fried chicken zinger burger.jpg" alt="Zinger Burger">
                     <div class="specialty-overlay">
                         <h3>The Mega Zinger</h3>
+                        <p>Crispy, juicy chicken perfection.</p>
                     </div>
                 </div>
                 <div class="specialty-item">
-                    <img src="./assets/karahi1.jpg" alt="Chicken Karahi">
+                    <img src="./public/assets/karahi1.jpg" alt="Chicken Karahi">
                     <div class="specialty-overlay">
                         <h3>White Karahi</h3>
+                        <p>Creamy, peppery traditional delight.</p>
                     </div>
                 </div>
                 <div class="specialty-item">
-                    <img src="./assets/dessert.jpg" alt="Dessert">
+                    <img src="./public/assets/dessert.jpg" alt="Dessert">
                     <div class="specialty-overlay">
                         <h3>Chef's Sweet Platter</h3>
+                        <p>A symphony of traditional sweets.</p>
                     </div>
                 </div>
                 <div class="specialty-item">
-                    <img src="./assets/Delicious Pizza.jpg" alt="Pizza">
+                    <img src="./public/assets/Delicious Pizza.jpg" alt="Pizza">
                     <div class="specialty-overlay">
                         <h3>Wood-Fired Pizza</h3>
+                        <p>Authentic Italian crust & flavors.</p>
+                    </div>
+                </div>
+                <div class="specialty-item">
+                    <img src="./public/assets/Restaurant-Style Paneer Butter Masala.jpg" alt="Paneer Butter Masala">
+                    <div class="specialty-overlay">
+                        <h3>Butter Paneer</h3>
+                        <p>Rich, creamy, and mildly spiced.</p>
+                    </div>
+                </div>
+                <div class="specialty-item">
+                    <img src="./public/assets/Chapli Kabab.jpg" alt="Chapli Kabab">
+                    <div class="specialty-overlay">
+                        <h3>Peshawari Chapli Kabab</h3>
+                        <p>Flavourful, tender, and authentic.</p>
+                    </div>
+                </div>
+                <div class="specialty-item">
+                    <img src="./public/assets/Tasty Traditional Gulab Jamun.jpg " alt="Gulab Jamun">
+                    <div class="specialty-overlay">
+                        <h3>Royal Gulab Jamun</h3>
+                        <p>Soft, syrup-soaked perfection.</p>
                     </div>
                 </div>
             </div>
@@ -172,35 +204,72 @@
             </div>
         </section>
 
+        <!-- Why Choose foodie? Section -->
+        <section class="why-foodie reveal" style="padding: 6rem 5%; background: var(--bg-dark);">
+            <div class="section-header">
+                <h2>Why Choose foodie?</h2>
+                <p>We're more than just a delivery service; we're your culinary partner</p>
+            </div>
+            <div class="category-grid-alt" style="margin-top: 4rem;">
+                <div class="category-card-alt">
+                    <div class="category-img-placeholder" style="background: var(--card-bg); font-size: 2.5rem;">🥗</div>
+                    <h3>Freshness Guaranteed</h3>
+                    <p>We source only the freshest ingredients from local farms and trusted vendors daily.</p>
+                </div>
+                <div class="category-card-alt">
+                    <div class="category-img-placeholder" style="background: var(--card-bg); font-size: 2.5rem;">⚡</div>
+                    <h3>Lightning Fast Delivery</h3>
+                    <p>Our intelligent routing system ensures your food reaches you hot and fresh in under 30 minutes.</p>
+                </div>
+                <div class="category-card-alt">
+                    <div class="category-img-placeholder" style="background: var(--card-bg); font-size: 2.5rem;">🧼</div>
+                    <h3>Uncompromising Hygiene</h3>
+                    <p>Every partner restaurant follows strict WHO-standard safety and cleanliness protocols.</p>
+                </div>
+                <div class="category-card-alt">
+                    <div class="category-img-placeholder" style="background: var(--card-bg); font-size: 2.5rem;">🎁</div>
+                    <h3>Exclusive Benefits</h3>
+                    <p>Enjoy foodie Pro rewards, free delivery, and up to 50% off on your favorite meals.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- How It Works -->
         <section class="how-it-works reveal">
             <div class="section-header">
-                <h2>Simple & Seamless</h2>
-                <p>Ordering your favorite meal has never been easier</p>
+                <h2>How Delivery Works</h2>
+                <p>Your favorite flavors delivered in 4 simple steps</p>
             </div>
             <div class="process-container">
                 <div class="process-line">
                     <div class="process-line-active"></div>
                 </div>
                 <div class="process-step">
-                    <div class="step-icon">🖱️</div>
+                    <div class="step-icon">📱</div>
                     <div class="step-info">
-                        <h3>Browse Menu</h3>
-                        <p>Pick from our wide variety of dishes</p>
+                        <h3>1. Select Food</h3>
+                        <p>Browse 1000+ restaurants and pick your favorite dishes.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">💳</div>
+                    <div class="step-info">
+                        <h3>2. Confirm Order</h3>
+                        <p>Securely pay via Card, Wallet, or choose Cash on Delivery.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="step-icon">👨‍🍳</div>
                     <div class="step-info">
-                        <h3>We Prepare</h3>
-                        <p>Cooked fresh by our master chefs</p>
+                        <h3>3. We Cook</h3>
+                        <p>The restaurant prepares your meal with love and care.</p>
                     </div>
                 </div>
                 <div class="process-step">
-                    <div class="step-icon">🚚</div>
+                    <div class="step-icon">🏍️</div>
                     <div class="step-info">
-                        <h3>Fast Delivery</h3>
-                        <p>At your doorstep within 30 minutes</p>
+                        <h3>4. Enjoy!</h3>
+                        <p>Our rider delivers your meal right to your doorstep.</p>
                     </div>
                 </div>
             </div>
@@ -310,7 +379,7 @@
                             <div class="menu-item">
                                 <div class="item-image-container">
                                     <span class="item-badge">Ad</span>
-                                    <img src="./assets/karahi.jpg" alt="Ranchers">
+                                    <img src="./public/assets/karahi.jpg" alt="Ranchers">
                                 </div>
                                 <div class="item-details">
                                     <h3>Ranchers - F 11</h3>
@@ -325,7 +394,7 @@
                             <div class="menu-item">
                                 <div class="item-image-container">
                                     <span class="item-badge">Top Rated</span>
-                                    <img src="./assets/briyani1.jpg" alt="Savour Foods">
+                                    <img src="./public/assets/briyani1.jpg" alt="Savour Foods">
                                 </div>
                                 <div class="item-details">
                                     <h3>Savour Foods - Blue Area</h3>
@@ -339,7 +408,7 @@
 
                             <div class="menu-item">
                                 <div class="item-image-container">
-                                    <img src="./assets/Delicious Pizza.jpg" alt="Domino's">
+                                    <img src="./public/assets/Delicious Pizza.jpg" alt="Domino's">
                                 </div>
                                 <div class="item-details">
                                     <h3>Domino's Pizza - F-7</h3>
@@ -354,8 +423,8 @@
                             <div class="menu-item">
                                 <div class="item-image-container">
                                     <span class="item-badge">New</span>
-                                    <img src="./assets/Chapli Kabab.jpg" alt="Khyber Foods">
-                                </div>
+                                    <img src="./public/assets/Chapli Kabab.jpg" alt="Khyber Foods">
+                                </div>  
                                 <div class="item-details">
                                     <h3>Khyber Village</h3>
                                     <p>Pakistani • $$ • 30 min • ⭐ 4.5</p>
@@ -368,7 +437,7 @@
 
                             <div class="menu-item">
                                 <div class="item-image-container">
-                                    <img src="./assets/Tandoori Chicken Tikka Skewers.jpg" alt="Tikka Shop">
+                                    <img src="./public/assets/Tandoori Chicken Tikka Skewers.jpg" alt="Tikka Shop">
                                 </div>
                                 <div class="item-details">
                                     <h3>Tikka Hub</h3>
@@ -379,238 +448,407 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <span class="item-badge">Bestseller</span>
+                                    <img src="./public/assets/Gajar Halwa Indian Food.jpg" alt="Dessert Shop">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Halwa Palace</h3>
+                                    <p>Desserts • $ • 15 min • ⭐ 4.9</p>
+                                    <div class="item-footer">
+                                        <span class="price">Pure Desi Ghee</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <img src="./public/assets/Indian Mango Lassi Mocktail Recipe.jpg" alt="Lassi Shop">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Lassi Corner</h3>
+                                    <p>Beverages • $ • 10 min • ⭐ 4.7</p>
+                                    <div class="item-footer">
+                                        <span class="price">Fresh & Chilled</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <span class="item-badge">Traditional</span>
+                                    <img src="./public/assets/briyan.jpg" alt="Karachi Biryani">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Karachi Hot N Spicy</h3>
+                                    <p>Biryani • $$ • 20 min • ⭐ 4.6 (5000+)</p>
+                                    <div class="item-footer">
+                    
+                                        
+                                        <span class="price">Authentic Taste</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <img src="./public/assets/Mutton Karahi Without Tomatoes – A Unique Twist.jpg" alt="Mutton Karahi">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Shinwari Mutton</h3>
+                                    <p>Pakistani • $$$ • 45 min • ⭐ 4.8</p>
+                                    <div class="item-footer">
+                                        <span class="price">Chef's Special</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <img src="./public/assets/burger.jpg" alt="Burger">
+                                </div>
+                                <div class="item-details">
+                                    <h3>The Burger Co.</h3>
+                                    <p>Fast Food • $$ • 15 min • ⭐ 4.4</p>
+                                    <div class="item-footer">
+                                        <span class="price">Buy 1 Get 1</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <span class="item-badge">Spicy</span>
+                                    <img src="./public/assets/A crispy golden fried chicken zinger burger.jpg" alt="Crispy Wings">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Crispy Wings Hub</h3>
+                                    <p>Fast Food • $$ • 20 min • ⭐ 4.6</p>
+                                    <div class="item-footer">
+                                        <span class="price">Free Dip</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <img src="./public/assets/Restaurant-Style Paneer Butter Masala.jpg" alt="Paneer">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Paneer Paradise</h3>
+                                    <p>Vegetarian • $$ • 25 min • ⭐ 4.5</p>
+                                    <div class="item-footer">
+                                        <span class="price">Pure Veg</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <span class="item-badge">Healthy</span>
+                                    <img src="./public/assets/How Spicy Citrus Cleanse Helps Boost Your Metabolism.jpg" alt="Salad">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Fresh Salad Co</h3>
+                                    <p>Healthy • $$ • 15 min • ⭐ 4.3</p>
+                                    <div class="item-footer">
+                                        <span class="price">Organic Mix</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <span class="item-badge">Chef's Choice</span>
+                                    <img src="./public/assets/seekh kabab.jpg" alt="Mixed Grill">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Mixed Grill House</h3>
+                                    <p>BBQ • $$$ • 35 min • ⭐ 4.7</p>
+                                    <div class="item-footer">
+                                        <span class="price">Family Platter</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <span class="item-badge">Premium</span>
+                                    <img src="./public/assets/sushi.jpg" alt="Sushi">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Sushi Zen</h3>
+                                    <p>Japanese • $$$ • 30 min • ⭐ 4.9</p>
+                                    <div class="item-footer">
+                                        <span class="price">Fresh Sashimi</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item">
+                                <div class="item-image-container">
+                                    <span class="item-badge">New</span>
+                                    <img src="./public/assets/tacos.jpg" alt="Tacos">
+                                </div>
+                                <div class="item-details">
+                                    <h3>Taco Fiesta</h3>
+                                    <p>Mexican • $$ • 25 min • ⭐ 4.6</p>
+                                    <div class="item-footer">
+                                        <span class="price">Buy 2 Get 1</span>
+                                        <button class="btn">Order Now</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </section>
                     
-                    <!-- Rest of the sections can be moved here or kept simplified for this prototype -->
+                    <!-- Delivery Coverage Map Section -->
+                    <section class="delivery-map-section reveal" style="margin-top: 5rem;">
+                        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">Our Delivery Coverage</h2>
+                        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">We deliver fresh and fast within the highlighted areas of Islamabad.</p>
+                        <div class="map-container" style="width: 100%; height: 450px; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106201.27210214347!2d72.993012!3d33.684422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6059515133b45273!2sIslamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>
 
         </div> <!-- End of delivery-content -->
 
-        <!-- Pick-up Category Content -->
+        <!-- Pick-up Content -->
         <div id="pickup-content" class="category-content">
-            <div class="category-hero">
+            <div class="category-hero" style="background: linear-gradient(135deg, var(--bg-dark) 0%, var(--card-bg) 100%);">
                 <div class="category-hero-text">
-                    <h1>Skip the Line with <span>Pick-up</span></h1>
-                    <p>Order your favorite meals and grab them on your way. Fast, easy, and no delivery fees!</p>
+                    <h1>Fastest <span>Pick-up</span> in Town</h1>
+                    <p>Order ahead and skip the line at your favorite local restaurants.</p>
                 </div>
                 <div class="category-hero-image">🛍️</div>
             </div>
 
-            <!-- Pick-up Search & Filters -->
-            <div class="pickup-controls" style="padding: 0 5%; margin-bottom: 2rem;">
-                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
-                    <div class="search-box" style="flex: 1;">
-                        <span class="search-icon-inside">🔍</span>
-                        <input type="text" placeholder="Search for pick-up restaurants near you...">
+            <div class="pickup-controls reveal">
+                <div class="pickup-search-row">
+                    <div class="search-box" style="flex: 1; margin: 0;">
+                        <input type="text" placeholder="Search for pick-up near you">
                         <button class="search-btn">Search</button>
                     </div>
-                    <button class="btn2" style="display: flex; align-items: center; gap: 8px; white-space: nowrap; height: 46px; border-radius: 40px; padding: 0 20px;">
+                    <button class="map-view-btn">
                         <span>📍</span> View Map
                     </button>
                 </div>
-                <div class="filter-actions">
-                    <button class="filter-pill active"><span>🚶</span> Near me</button>
-                    <button class="filter-pill"><span>📏</span> Under 1km</button>
-                    <button class="filter-pill"><span>⭐</span> Top rated</button>
-                    <button class="filter-pill"><span>🏷️</span> Offers</button>
-                    <button class="filter-pill"><span>🟢</span> Open Now</button>
-                    <button class="filter-pill"><span>🥦</span> Vegetarian</button>
-                </div>
             </div>
 
-            <section class="featured-specialties" style="padding-top: 0;">
-                <div class="section-header" style="text-align: left; padding: 0 5%; margin-bottom: 2rem;">
-                    <h2 style="font-size: 1.8rem;">Pick-up Restaurants Near You</h2>
-                </div>
-                <div class="menu-layout-container">
-                    <div class="menu-content" style="width: 100%;">
-                        <div class="category-items horizontal-scroll">
-                            <div class="menu-item">
-                                <div class="item-image-container">
-                                    <span class="item-badge">5-10 min</span>
-                                    <img src="./assets/burger.jpg" alt="Burger Lab">
-                                </div>
-                                <div class="item-details">
-                                    <h3>Burger Lab - E11</h3>
-                                    <p>Burgers • $$</p>
-                                    <div style="display: flex; align-items: center; gap: 10px; margin: 0.5rem 0; font-size: 0.9rem; color: #64748b;">
-                                        <span>🚶 850m</span>
-                                        <span>⭐ 4.6 (1k+)</span>
-                                    </div>
-                                    <div class="item-footer">
-                                        <span class="price">Ready in 10m</span>
-                                        <button class="btn">Order Pickup</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-image-container">
-                                    <span class="item-badge">10-15 min</span>
-                                    <img src="./assets/karahi1.jpg" alt="Tandoori">
-                                </div>
-                                <div class="item-details">
-                                    <h3>Tandoori - F10</h3>
-                                    <p>Pakistani • $$$</p>
-                                    <div style="display: flex; align-items: center; gap: 10px; margin: 0.5rem 0; font-size: 0.9rem; color: #64748b;">
-                                        <span>🚶 1.2km</span>
-                                        <span>⭐ 4.7 (2k+)</span>
-                                    </div>
-                                    <div class="item-footer">
-                                        <span class="price">20% Off</span>
-                                        <button class="btn">Order Pickup</button>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="pickup-restaurants-header reveal">
+                <h2>Popular for Pick-up</h2>
+                <a href="#" class="see-all-link">See all <span>→</span></a>
+            </div>
 
-                            <div class="menu-item">
-                                <div class="item-image-container">
-                                    <span class="item-badge">15-20 min</span>
-                                    <img src="./assets/A crispy golden fried chicken zinger burger.jpg" alt="KFC">
-                                </div>
-                                <div class="item-details">
-                                    <h3>KFC - F11</h3>
-                                    <p>Fast Food • $$</p>
-                                    <div style="display: flex; align-items: center; gap: 10px; margin: 0.5rem 0; font-size: 0.9rem; color: #64748b;">
-                                        <span>🚶 2.1km</span>
-                                        <span>⭐ 4.3 (5k+)</span>
-                                    </div>
-                                    <div class="item-footer">
-                                        <span class="price">Ready in 15m</span>
-                                        <button class="btn">Order Pickup</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="menu-item">
-                                <div class="item-image-container">
-                                    <span class="item-badge">5-10 min</span>
-                                    <img src="./assets/Delicious Pizza.jpg" alt="Pizza Hut">
-                                </div>
-                                <div class="item-details">
-                                    <h3>Pizza Hut - G11</h3>
-                                    <p>Pizza • $$$</p>
-                                    <div style="display: flex; align-items: center; gap: 10px; margin: 0.5rem 0; font-size: 0.9rem; color: #64748b;">
-                                        <span>🚶 500m</span>
-                                        <span>⭐ 4.5 (3k+)</span>
-                                    </div>
-                                    <div class="item-footer">
-                                        <span class="price">Ready in 5m</span>
-                                        <button class="btn">Order Pickup</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="menu-item">
-                                <div class="item-image-container">
-                                    <span class="item-badge">10-15 min</span>
-                                    <img src="./assets/seekh kabab.jpg" alt="Kabab Shop">
-                                </div>
-                                <div class="item-details">
-                                    <h3>Kabab King</h3>
-                                    <p>BBQ • $$ • 1.5 km away • ⭐ 4.8</p>
-                                    <div class="item-footer">
-                                        <span class="price">Popular</span>
-                                        <button class="btn">Order Pickup</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="menu-item">
-                                <div class="item-image-container">
-                                    <span class="item-badge">15-25 min</span>
-                                    <img src="./assets/Restaurant-Style Paneer Butter Masala.jpg" alt="Desi Shop">
-                                </div>
-                                <div class="item-details">
-                                    <h3>Desi Delights</h3>
-                                    <p>Vegetarian • $$ • 2.5 km away • ⭐ 4.6</p>
-                                    <div class="item-footer">
-                                        <span class="price">Chef Choice</span>
-                                        <button class="btn">Order Pickup</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="menu-item">
-                                <div class="item-image-container">
-                                    <span class="item-badge">5-10 min</span>
-                                    <img src="./assets/Crispy Air Fried French Fries – The Best Homemade Recipe! - Womenwiseliving.jpg" alt="Fries Shop">
-                                </div>
-                                <div class="item-details">
-                                    <h3>The Fry Shack</h3>
-                                    <p>Sides • $ • 0.3 km away • ⭐ 4.4</p>
-                                    <div class="item-footer">
-                                        <span class="price">Quick Bite</span>
-                                        <button class="btn">Order Pickup</button>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="category-items reveal" style="padding: 0 5% 5rem;">
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">15 min</span>
+                        <img src="./public/assets/burger.jpg" alt="Burger House">
+                    </div>
+                    <div class="item-details">
+                        <h3>Burger House</h3>
+                        <p>Fast Food • $$ • 0.5 km • ⭐ 4.5</p>
+                        <div class="item-footer">
+                            <span class="price">Buy 1 Get 1</span>
+                            <button class="btn">Order for Pick-up</button>
                         </div>
                     </div>
                 </div>
-                <div style="text-align: right; padding: 0 5%; margin-top: -1rem; margin-bottom: 3rem;">
-                    <a href="#" style="color: #e63946; font-weight: 700; font-size: 0.95rem;">See all restaurants →</a>
-                </div>
-            </section>
 
-            <!-- Compact How it Works for Pickup -->
-            <section style="background: #fdf2f2; padding: 3rem 5%; margin-bottom: 2rem; border-radius: 24px; margin: 0 5% 4rem;">
-                <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem; color: #1a1a1a;">How Pick-up Works</h3>
-                <div style="display: flex; justify-content: space-around; gap: 2rem; flex-wrap: wrap;">
-                    <div style="text-align: center; flex: 1; min-width: 150px;">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">📱</div>
-                        <h4 style="color: #e63946;">1. Order</h4>
-                        <p style="font-size: 0.9rem; color: #64748b;">Place your order via the app</p>
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">10 min</span>
+                        <img src="./public/assets/Delicious Pizza.jpg" alt="Pizza Point">
                     </div>
-                    <div style="text-align: center; flex: 1; min-width: 150px;">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">👨‍🍳</div>
-                        <h4 style="color: #e63946;">2. Prepare</h4>
-                        <p style="font-size: 0.9rem; color: #64748b;">The restaurant prepares your meal</p>
-                    </div>
-                    <div style="text-align: center; flex: 1; min-width: 150px;">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">🚗</div>
-                        <h4 style="color: #e63946;">3. Collect</h4>
-                        <p style="font-size: 0.9rem; color: #64748b;">Pick up and enjoy your food!</p>
+                    <div class="item-details">
+                        <h3>Pizza Point</h3>
+                        <p>Pizza • $$$ • 1.2 km • ⭐ 4.7</p>
+                        <div class="item-footer">
+                            <span class="price">20% Off</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Savings Section for Pickup -->
-            <section class="how-it-works" style="padding: 4rem 5%;">
-                <div class="section-header">
-                    <h2>Why choose Pick-up?</h2>
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">20 min</span>
+                        <img src="./public/assets/briyan.jpg" alt="Biryani Express">
+                    </div>
+                    <div class="item-details">
+                        <h3>Biryani Express</h3>
+                        <p>Pakistani • $$ • 0.8 km • ⭐ 4.3</p>
+                        <div class="item-footer">
+                            <span class="price">Authentic Taste</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">25 min</span>
+                        <img src="./public/assets/Tandoori Chicken Tikka Skewers.jpg" alt="Tikka Town">
+                    </div>
+                    <div class="item-details">
+                        <h3>Tikka Town</h3>
+                        <p>BBQ • $$ • 1.5 km • ⭐ 4.6</p>
+                        <div class="item-footer">
+                            <span class="price">Hot & Spicy</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="process-container" style="margin-top: 2rem;">
-                    <div class="process-step">
-                        <div class="step-icon" style="width: 80px; height: 80px; font-size: 2rem;">💰</div>
-                        <div class="step-info">
-                            <h3>No Delivery Fee</h3>
-                            <p>Save more on every order</p>
-                        </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">12 min</span>
+                        <img src="./public/assets/A crispy golden fried chicken zinger burger.jpg" alt="Zinger King">
                     </div>
-                    <div class="process-step">
-                        <div class="step-icon" style="width: 80px; height: 80px; font-size: 2rem;">⚡</div>
-                        <div class="step-info">
-                            <h3>No Waiting</h3>
-                            <p>Your food is ready when you arrive</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-icon" style="width: 80px; height: 80px; font-size: 2rem;">🔥</div>
-                        <div class="step-info">
-                            <h3>Exclusive Deals</h3>
-                            <p>Up to 20% off on pick-up orders</p>
+                    <div class="item-details">
+                        <h3>Zinger King</h3>
+                        <p>Fast Food • $ • 0.3 km • ⭐ 4.8</p>
+                        <div class="item-footer">
+                            <span class="price">Crispy Delight</span>
+                            <button class="btn">Order for Pick-up</button>
                         </div>
                     </div>
                 </div>
-            </section>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">30 min</span>
+                        <img src="./public/assets/karahi1.jpg" alt="White Karahi House">
+                    </div>
+                    <div class="item-details">
+                        <h3>White Karahi House</h3>
+                        <p>Pakistani • $$$ • 2.1 km • ⭐ 4.9</p>
+                        <div class="item-footer">
+                            <span class="price">Creamy & Rich</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">15 min</span>
+                        <img src="./public/assets/Chapli Kabab.jpg" alt="Peshawari Kabab Shop">
+                    </div>
+                    <div class="item-details">
+                        <h3>Peshawari Kabab Shop</h3>
+                        <p>Pakistani • $$ • 0.9 km • ⭐ 4.4</p>
+                        <div class="item-footer">
+                            <span class="price">Authentic Kababs</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">8 min</span>
+                        <img src="./public/assets/Vegetable Samosas.jpg" alt="Samosa Corner">
+                    </div>
+                    <div class="item-details">
+                        <h3>Samosa Corner</h3>
+                        <p>Snacks • $ • 0.4 km • ⭐ 4.2</p>
+                        <div class="item-footer">
+                            <span class="price">Hot & Fresh</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">5 min</span>
+                        <img src="./public/assets/Indian Mango Lassi Mocktail Recipe.jpg" alt="Lassi Corner">
+                    </div>
+                    <div class="item-details">
+                        <h3>Lassi Corner</h3>
+                        <p>Beverages • $ • 0.2 km • ⭐ 4.7</p>
+                        <div class="item-footer">
+                            <span class="price">Fresh & Chilled</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">10 min</span>
+                        <img src="./public/assets/Classic Neapolitan Ice Cream 🍦 Triple Flavor Delight!.jpg" alt="Ice Cream Delights">
+                    </div>
+                    <div class="item-details">
+                        <h3>Ice Cream Delights</h3>
+                        <p>Desserts • $$ • 1.1 km • ⭐ 4.8</p>
+                        <div class="item-footer">
+                            <span class="price">Triple Flavor</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">7 min</span>
+                        <img src="./public/assets/Crispy Air Fried French Fries – The Best Homemade Recipe! - Womenwiseliving.jpg" alt="Fries Station">
+                    </div>
+                    <div class="item-details">
+                        <h3>Fries Station</h3>
+                        <p>Snacks • $ • 0.6 km • ⭐ 4.5</p>
+                        <div class="item-footer">
+                            <span class="price">Extra Crispy</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-image-container">
+                        <span class="item-badge">15 min</span>
+                        <img src="./public/assets/Gajar Halwa Indian Food.jpg" alt="Halwa Palace">
+                    </div>
+                    <div class="item-details">
+                        <h3>Halwa Palace</h3>
+                        <p>Desserts • $$ • 1.8 km • ⭐ 4.9</p>
+                        <div class="item-footer">
+                            <span class="price">Pure Desi Ghee</span>
+                            <button class="btn">Order for Pick-up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Shops Category Content -->
         <div id="shops-content" class="category-content">
-            <div class="category-hero" style="background: linear-gradient(135deg, #fdf2f2 0%, #f1f5f9 100%);">
+            <div class="category-hero" style="background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);">
                 <div class="category-hero-text">
                     <h1>Explore Your Local <span>Shops</span></h1>
                     <p>From pharmacies to florists, find everything you need from your favorite neighborhood stores.</p>
@@ -619,18 +857,18 @@
             </div>
             <section class="featured-specialties" style="padding-top: 2rem;">
                 <div class="section-header">
-                    <h2>Shops & More</h2>
-                    <p>Anything you need, from pharmacies to flower shops</p>
+                    <h2>Specialty Food Shops</h2>
+                    <p>Premium ingredients and gourmet finds from local artisans</p>
                 </div>
                 <div class="category-items" style="padding: 0 5% 5rem;">
                     <div class="menu-item">
                         <div class="item-image-container">
-                            <span class="item-badge">Pharmacy</span>
-                            <img src="./assets/How Spicy Citrus Cleanse Helps Boost Your Metabolism.jpg" alt="Health Shop">
+                            <span class="item-badge">Karahi</span>
+                            <img src="./public/assets/karahi.jpg" alt="Karahi Junction">
                         </div>
                         <div class="item-details">
-                            <h3>D-Watson Pharmacy</h3>
-                            <p>Healthcare • Personal Care • Medicine</p>
+                            <h3>Karahi Junction</h3>
+                            <p>Authentic Chicken & Mutton Karahi • Spicy • Traditional</p>
                             <div class="item-footer">
                                 <span class="price">30 min</span>
                                 <button class="btn">Shop Now</button>
@@ -640,7 +878,7 @@
                     <div class="menu-item">
                         <div class="item-image-container">
                             <span class="item-badge">Bakery</span>
-                            <img src="./assets/Tasty Traditional Gulab Jamun.jpg" alt="Bakery">
+                            <img src="./public/assets/Tasty Traditional Gulab Jamun.jpg" alt="Bakery">
                         </div>
                         <div class="item-details">
                             <h3>Tehzeeb Bakers</h3>
@@ -654,14 +892,14 @@
 
                     <div class="menu-item">
                         <div class="item-image-container">
-                            <span class="item-badge">Florist</span>
-                            <img src="./assets/Creative Ice Cream Drinks Social Media Carousel Post Design.jpg" alt="Florist">
+                            <span class="item-badge">Bakery</span>
+                            <img src="./public/assets/bread.jpg" alt="Bread Basket">
                         </div>
                         <div class="item-details">
-                            <h3>The Flower Hub</h3>
-                            <p>Fresh Bouquets • Occasions • Gifts</p>
+                            <h3>The Bread Basket</h3>
+                            <p>Artisan Sourdough • Croissants • Fresh Bread</p>
                             <div class="item-footer">
-                                <span class="price">45 min</span>
+                                <span class="price">10 min</span>
                                 <button class="btn">Shop Now</button>
                             </div>
                         </div>
@@ -669,14 +907,164 @@
 
                     <div class="menu-item">
                         <div class="item-image-container">
-                            <span class="item-badge">Pets</span>
-                            <img src="./assets/How Spicy Citrus Cleanse Helps Boost Your Metabolism.jpg" alt="Pet Shop">
+                            <span class="item-badge">Momoos</span>
+                            <img src="./public/assets/mommos.jpg" alt="Momoos">
                         </div>
                         <div class="item-details">
-                            <h3>Pet Care Plus</h3>
-                            <p>Food • Toys • Healthcare</p>
+                            <h3>Momoos</h3>
+                            <p>Delicious Steamed • Fried Momoos</p>
                             <div class="item-footer">
                                 <span class="price">25 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Biryani</span>
+                            <img src="./public/assets/briyan.jpg" alt="Biryani Delight">
+                        </div>
+                        <div class="item-details">
+                            <h3>Biryani Delight</h3>
+                            <p>Authentic Dum Biryani • Spicy • Flavorful</p>
+                            <div class="item-footer">
+                                <span class="price">35 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Kabab</span>
+                            <img src="./public/assets/Chapli Kabab.jpg" alt="Chapli Kabab House">
+                        </div>
+                        <div class="item-details">
+                            <h3>Chapli Kabab House</h3>
+                            <p>Traditional Peshawari Chapli Kabab • Juicy • Spicy</p>
+                            <div class="item-footer">
+                                <span class="price">20 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Fresh Fish</span>
+                            <img src="./public/assets/seafood.jpg" alt="Seafood">
+                        </div>
+                        <div class="item-details">
+                            <h3>Seafood Direct</h3>
+                            <p>Fresh Catch • Prawns • Whole Fish</p>
+                            <div class="item-footer">
+                                <span class="price">50 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Sweets</span>
+                            <img src="./public/assets/Gajar Halwa Indian Food.jpg" alt="Sweets Palace">
+                        </div>
+                        <div class="item-details">
+                            <h3>Sweets Palace</h3>
+                            <p>Traditional Sweets • Halwa • Desserts</p>
+                            <div class="item-footer">
+                                <span class="price">15 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Butcher</span>
+                            <img src="./public/assets/seekh kabab.jpg" alt="Meat Hub">
+                        </div>
+                        <div class="item-details">
+                            <h3>Meat & Poultry Hub</h3>
+                            <p>Fresh Meat • Chicken • BBQ Cuts</p>
+                            <div class="item-footer">
+                                <span class="price">40 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Frozen</span>
+                            <img src="./public/assets/Delicious Pizza.jpg" alt="Frozen Delights">
+                        </div>
+                        <div class="item-details">
+                            <h3>Frozen Delights</h3>
+                            <p>Ready to Cook • Frozen Pizza • Snacks</p>
+                            <div class="item-footer">
+                                <span class="price">20 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Golgappy</span>
+                            <img src="./public/assets/golgappy.jpg" alt="Golgappy">
+                        </div>
+                        <div class="item-details">
+                            <h3>Golgappy</h3>
+                            <p>Crispy • Tangy • Spicy Golgappy</p>
+                            <div class="item-footer">
+                                <span class="price">15 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Noodles</span>
+                            <img src="./public/assets/noodles.jpg" alt="Noodles">
+                        </div>
+                        <div class="item-details">
+                            <h3>Noodles</h3>
+                            <p>Spicy • Savory • Delicious Noodles</p>
+                            <div class="item-footer">
+                                <span class="price">20 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Fresh Pasta</span>
+                            <img src="./public/assets/pasta.jpg" alt="Pasta">
+                        </div>
+                        <div class="item-details">
+                            <h3>Gourmet Pasta House</h3>
+                            <p>Fresh Ravioli • Tagliatelle • Pasta Sauces</p>
+                            <div class="item-footer">
+                                <span class="price">25 min</span>
+                                <button class="btn">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-image-container">
+                            <span class="item-badge">Coffee</span>
+                            <img src="./public/assets/coffee.jpg" alt="Coffee Shop">
+                        </div>
+                        <div class="item-details">
+                            <h3>Coffee Shop</h3>
+                            <p>Single Origin Beans • Roasted Daily • Brew Kits</p>
+                            <div class="item-footer">
+                                <span class="price">10 min</span>
                                 <button class="btn">Shop Now</button>
                             </div>
                         </div>
@@ -685,6 +1073,32 @@
             </section>
 
         </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section reveal" style="padding: 6rem 5%; background: var(--bg-dark);">
+            <div class="section-header">
+                <h2>Got Questions?</h2>
+                <p>Everything you need to know about foodie</p>
+            </div>
+            <div class="faq-container" style="max-width: 800px; margin: 4rem auto 0;">
+                <div class="faq-item" style="margin-bottom: 1.5rem; background: var(--card-bg); padding: 1.5rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 700;">Is there a minimum order value?</h4>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">No, you can order as much or as little as you like! However, some restaurants may have their own minimum order requirements which will be shown at checkout.</p>
+                </div>
+                <div class="faq-item" style="margin-bottom: 1.5rem; background: var(--card-bg); padding: 1.5rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 700;">How do I track my order?</h4>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">Once your order is confirmed, you'll see a live tracking screen showing exactly where your food and rider are in real-time.</p>
+                </div>
+                <div class="faq-item" style="margin-bottom: 1.5rem; background: var(--card-bg); padding: 1.5rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 700;">Can I pay with cash on delivery?</h4>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">Yes! We accept Cash on Delivery, as well as all major Credit/Debit cards, digital wallets, and Apple/Google Pay.</p>
+                </div>
+                <div class="faq-item" style="margin-bottom: 1.5rem; background: var(--card-bg); padding: 1.5rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 700;">How can I partner my restaurant with foodie?</h4>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">We're always looking for new partners! Simply click on "Partner with Us" in the footer to start your application process.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- Newsletter -->
         <section class="newsletter-section reveal">
@@ -753,7 +1167,7 @@
             <div class="footer-bottom">
                 <div class="footer-logo-copyright">
                     <a href="index.html" class="logo-text">foo<span>die</span></a>
-                    <p>&copy; 2026 foodie. All rights reserved.</p>
+                    
                 </div>
                 <div class="footer-socials">
                     <a href="#" class="footer-social-icon">f</a>
@@ -775,11 +1189,11 @@
                 <div class="modal-info">
                     <h2 id="modal-title">Item Name</h2>
                     <span class="modal-price" id="modal-price">$0.00</span>
-                    <p id="modal-desc" style="color: #64748b; margin-bottom: 2rem;">Detailed description of the food item goes here, highlighting the fresh ingredients and traditional preparation methods.</p>
+                    <p id="modal-desc" style="color: var(--text-muted); margin-bottom: 2rem;">Detailed description of the food item goes here, highlighting the fresh ingredients and traditional preparation methods.</p>
                     
                     <div class="form-group">
                         <label>Spice Level:</label>
-                        <select style="background: white; border: 1px solid #e2e8f0; color: #333;">
+                        <select style="background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); color: var(--text-main);">
                             <option>Mild</option>
                             <option>Medium</option>
                             <option>Extra Spicy 🔥</option>
@@ -788,7 +1202,7 @@
                     
                     <div class="form-group">
                         <label>Special Instructions:</label>
-                        <textarea rows="2" placeholder="e.g., No onions, please" style="background: white; border: 1px solid #e2e8f0; color: #333;"></textarea>
+                        <textarea rows="2" placeholder="e.g., No onions, please" style="background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); color: var(--text-main);"></textarea>
                     </div>
                     
                     <button class="btn" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;">Add to Cart</button>
@@ -798,39 +1212,30 @@
     </div>
 
     <script>
-        // Hamburger Menu Toggle
+        // Unified Navigation Logic
         const hamburger = document.getElementById('hamburger');
-        const navButtons = document.querySelector('.nav-buttons');
-        const siteHeader = document.querySelector('.site-header');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navButtons.classList.toggle('active');
-            // Toggle a class on header to handle mobile height if needed
-            siteHeader.classList.toggle('mobile-active');
-        });
+        const closeMenu = document.getElementById('close-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const navOverlay = document.getElementById('nav-overlay');
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!siteHeader.contains(e.target) && navButtons.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navButtons.classList.remove('active');
-                siteHeader.classList.remove('mobile-active');
-            }
-        });
+        const toggleMenu = () => {
+            mobileNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+        };
 
-        // User Dropdown Toggle
-        const userBtn = document.getElementById('user-menu-btn');
-        const userDropdown = document.getElementById('user-dropdown');
-        if(userBtn) {
-            userBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                userDropdown.classList.toggle('active');
+        if(hamburger) hamburger.addEventListener('click', toggleMenu);
+        if(closeMenu) closeMenu.addEventListener('click', toggleMenu);
+        if(navOverlay) navOverlay.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
-            document.addEventListener('click', () => {
-                if(userDropdown) userDropdown.classList.remove('active');
-            });
-        }
+        });
 
         // Item Detail Modal Logic
         const modal = document.getElementById('item-modal');
@@ -860,7 +1265,11 @@
         };
 
         menuItemsCards.forEach(card => {
-            card.addEventListener('click', () => openModal(card));
+            card.addEventListener('click', (e) => {
+                if(!e.target.closest('.btn')) {
+                    openModal(card);
+                }
+            });
         });
 
         if(modalClose) modalClose.addEventListener('click', closeModal);
