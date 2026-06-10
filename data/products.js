@@ -222,5 +222,104 @@ export const products = [
     price: 22.00,
     image: "/assets/sushi.jpg",
     description: "Japanese • $$$ • 30 min • ⭐ 4.9"
+  },
+  {
+    id: 33,
+    title: "Gourmet Margherita Pizza",
+    price: 15.99,
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070&auto=format&fit=crop",
+    description: "Classic Italian pizza with fresh mozzarella and basil."
+  },
+  {
+    id: 34,
+    title: "Signature BBQ Burger",
+    price: 12.50,
+    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop",
+    description: "Juicy beef patty with smoky BBQ sauce and crispy onions."
+  },
+  {
+    id: 35,
+    title: "Fresh Salmon Sushi",
+    price: 18.00,
+    image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=2070&auto=format&fit=crop",
+    description: "Premium grade salmon sushi served with wasabi and ginger."
+  },
+  {
+    id: 36,
+    title: "Creamy Pesto Pasta",
+    price: 14.99,
+    image: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?q=80&w=1994&auto=format&fit=crop",
+    description: "Al dente pasta tossed in rich basil pesto and parmesan."
+  },
+  {
+    id: 37,
+    title: "Garden Fresh Salad",
+    price: 9.99,
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop",
+    description: "A healthy mix of seasonal greens and balsamic vinaigrette."
+  },
+  {
+    id: 38,
+    title: "Street Style Tacos",
+    price: 11.00,
+    image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1980&auto=format&fit=crop",
+    description: "Three soft corn tortillas with choice of protein and salsa."
+  },
+  {
+    id: 39,
+    title: "Ribeye Steak",
+    price: 29.99,
+    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=2070&auto=format&fit=crop",
+    description: "Perfectly seared ribeye steak with garlic butter."
+  },
+  {
+    id: 40,
+    title: "Spicy Tonkotsu Ramen",
+    price: 16.50,
+    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=2080&auto=format&fit=crop",
+    description: "Rich pork broth with noodles, egg, and spicy miso."
+  },
+  {
+    id: 41,
+    title: "Blueberry Pancakes",
+    price: 10.50,
+    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?q=80&w=1980&auto=format&fit=crop",
+    description: "Fluffy pancakes topped with fresh blueberries and syrup."
+  },
+  {
+    id: 42,
+    title: "Shrimp Dim Sum",
+    price: 13.00,
+    image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?q=80&w=2070&auto=format&fit=crop",
+    description: "Traditional steamed shrimp dumplings."
+  },
+  {
+    id: 43,
+    title: "Velvet Cupcakes",
+    price: 8.99,
+    image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?q=80&w=2080&auto=format&fit=crop",
+    description: "Assorted red velvet and chocolate cupcakes."
+  },
+  {
+    id: 44,
+    title: "Artisanal Ice Cream",
+    price: 7.50,
+    image: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?q=80&w=1974&auto=format&fit=crop",
+    description: "Hand-crafted vanilla bean and berry swirl ice cream."
+  },
+  {
+    id: 45,
+    title: "Seafood Paella",
+    price: 24.50,
+    image: "https://images.unsplash.com/photo-1534080564607-317f53f89981?q=80&w=2070&auto=format&fit=crop",
+    description: "Spanish rice dish with fresh mussels, shrimp, and squid."
+  },
+  {
+    id: 46,
+    title: "Spicy Red Curry",
+    price: 15.00,
+    image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?q=80&w=2070&auto=format&fit=crop",
+    description: "Authentic Thai red curry with coconut milk and bamboo shoots."
   }
 ];
+

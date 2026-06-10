@@ -1,5 +1,5 @@
 {
-  "name": "flavors-hub-nextjs",
+  "name": "foodie-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,12 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18"
+    "bcryptjs": "^3.0.3",
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.6.3",
+    "next": "^16.2.7",
+    "next-auth": "^4.24.14",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3"
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.15",
+    "dotenv": "^17.4.2",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.7",
+    "typescript": "^6.0.3"
   }
 }

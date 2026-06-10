@@ -1,46 +1,78 @@
 import "./globals.css";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Flavors Hub | Delicious Food Delivered Fast",
-  description: "Your favorite meal from the best restaurants delivered to your doorstep in minutes.",
-};
+import Navbar from "./components/Navbar";
+import { AuthProvider } from "./Providers";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <header className="navbar">
-          <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.5rem 2rem" }}>
-            <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
-              <h1 style={{ margin: 0, fontSize: "1.8rem", fontWeight: "800" }}>
-                Flavors<span style={{ color: "var(--primary-color)" }}>Hub</span>
-              </h1>
-            </Link>
-            <nav style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-              <Link href="/" className="nav-link">Home</Link>
-              <Link href="/about" className="nav-link">About</Link>
-              <Link href="/contact" className="nav-link">Contact</Link>
-              <div className="auth-buttons" style={{ display: "flex", gap: "1rem" }}>
-                <Link href="/login" className="btn" style={{ padding: "0.5rem 1.2rem", fontSize: "0.9rem" }}>Login</Link>
+        <AuthProvider>
+          <Navbar />
+
+          <main>{children}</main>
+
+          <footer className="site-footer">
+            <div className="container">
+              <div className="footer-top">
+                <div className="footer-column">
+                  <h4>Customer Care</h4>
+                  <ul>
+                    <li><Link href="/help">Help Center</Link></li>
+                    <li><Link href="/refunds">Refunds with foodiepay</Link></li>
+                    <li><Link href="/terms">Terms and Conditions</Link></li>
+                    <li><Link href="/privacy">Privacy policy</Link></li>
+                    <li><Link href="/security">Security</Link></li>
+                  </ul>
+                </div>
+                <div className="footer-column">
+                  <h4>Corporate</h4>
+                  <ul>
+                    <li><Link href="/press">Press</Link></li>
+                    <li><Link href="/careers">Careers</Link></li>
+                    <li><Link href="/restaurants">Suggest a Restaurant</Link></li>
+                    <li><Link href="/affiliate">Become an Affiliate</Link></li>
+                    <li><Link href="/partner">Partner with Us</Link></li>
+                  </ul>
+                </div>
+                <div className="footer-column">
+                  <h4>Discover</h4>
+                  <ul>
+                    <li><Link href="/cuisines">All cuisines</Link></li>
+                    <li><Link href="/magazine">foodie Magazine</Link></li>
+                    <li><Link href="/cities">All cities</Link></li>
+                    <li><Link href="/chef">foodie Home Chef</Link></li>
+                  </ul>
+                </div>
+                <div className="footer-column">
+                  <h4>Locations</h4>
+                  <ul>
+                    <li><Link href="/karachi">Karachi</Link></li>
+                    <li><Link href="/lahore">Lahore</Link></li>
+                    <li><Link href="/islamabad">Islamabad</Link></li>
+                    <li><Link href="/dubai">Dubai</Link></li>
+                  </ul>
+                  <h4 style={{ marginTop: "2.5rem" }}>Download Apps</h4>
+                  <div className="app-downloads">
+                    <Link href="#" className="app-btn" title="Download on App Store"><span>🍎</span> App Store</Link>
+                    <Link href="#" className="app-btn" title="Download on Play Store"><span>🤖</span> Play Store</Link>
+                  </div>
+                </div>
               </div>
-            </nav>
-          </div>
-        </header>
-        <main>{children}</main>
-        <footer className="footer">
-          <div className="container">
-            <div style={{ marginBottom: "2rem" }}>
-              <h2 style={{ fontSize: "1.5rem", fontWeight: "800" }}>
-                Flavors<span style={{ color: "var(--primary-color)" }}>Hub</span>
-              </h2>
-              <p style={{ color: "var(--text-muted)" }}>Savor the best flavors in town, delivered right to your door.</p>
+              
+              <div className="footer-bottom">
+                <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
+                  <Link href="/" className="logo-text">foo<span>die</span></Link>
+                </div>
+                <div className="footer-socials">
+                  <Link href="#" className="footer-social-icon">f</Link>
+                  <Link href="#" className="footer-social-icon">t</Link>
+                  <Link href="#" className="footer-social-icon">i</Link>
+                </div>
+              </div>
             </div>
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "2rem" }}>
-              <p>&copy; 2026 Flavors Hub. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
+          </footer>
+        </AuthProvider>
       </body>
     </html>
   );
