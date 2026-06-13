@@ -4,16 +4,18 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
+import { useCategory } from "../Providers";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { data: session, status } = useSession();
+  const { category, setCategory } = useCategory();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -29,14 +31,18 @@ export default function Navbar() {
     document.body.style.overflow = "auto";
   };
 
+  const isHome = pathname === "/";
+
   return (
     <>
       <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <div className="container">
           <nav className="menu">
-            <Link href="/" className="logo-text" onClick={closeMenu}>
-              foo<span>die</span>
-            </Link>
+            <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }}>
+              <Link href="/" className="logo-text" onClick={closeMenu}>
+                foo<span>die</span>
+              </Link>
+            </div>
 
             <div className="menu-items">
               <Link href="/" className={pathname === "/" ? "active" : ""}>Home</Link>
@@ -45,7 +51,7 @@ export default function Navbar() {
               
               <Link href="/checkout" className="cart-link" style={{ position: "relative", marginLeft: "1rem" }}>
                 <span style={{ fontSize: "1.4rem" }}>🛒</span>
-                <span style={{ position: "absolute", top: "-8px", right: "-12px", background: "var(--primary)", color: "#000", fontSize: "0.7rem", fontWeight: "900", width: "18px", height: "18px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>3</span>
+                <span className="cart-badge">3</span>
               </Link>
               
               {status === "authenticated" ? (
@@ -73,41 +79,86 @@ export default function Navbar() {
               className={`hamburger ${isOpen ? "active" : ""}`} 
               onClick={toggleMenu}
             >
-              <span></span>
-              <span></span>
-              <span></span>
+              <div className="hamburger-box">
+                <div className="hamburger-inner"></div>
+              </div>
             </div>
           </nav>
         </div>
       </header>
 
+      {isHome && (
+        <div className={`category-bar ${scrolled ? "scrolled" : ""}`}>
+          <div className="container">
+            <div className="nav-categories">
+              <button 
+                onClick={() => setCategory("delivery")}
+                className={`nav-category-btn ${category === "delivery" ? "active" : ""}`}
+              >
+                🛵 Delivery
+              </button>
+              <button 
+                onClick={() => setCategory("pickup")}
+                className={`nav-category-btn ${category === "pickup" ? "active" : ""}`}
+              >
+                🛍️ Pick-up
+              </button>
+              <button 
+                onClick={() => setCategory("shops")}
+                className={`nav-category-btn ${category === "shops" ? "active" : ""}`}
+              >
+                🏪 Shops
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Mobile Navigation Drawer */}
       <div className={`mobile-nav ${isOpen ? "active" : ""}`}>
-        <Link href="/" onClick={closeMenu}>Home</Link>
-        <Link href="/about" onClick={closeMenu}>Our Story</Link>
-        <Link href="/contact" onClick={closeMenu}>Contact</Link>
-        <Link href="/checkout" onClick={closeMenu}>Cart (3)</Link>
-        
-        <div style={{ width: "80%", height: "1px", background: "var(--glass-border)", margin: "1rem 0" }}></div>
+        <Link href="/" onClick={closeMenu} className={pathname === "/" ? "active" : ""}>Home</Link>
 
-        {status === "authenticated" ? (
-          <>
-            <p style={{ color: "var(--primary)", fontWeight: "800", fontSize: "1.2rem" }}>{session.user.name}</p>
-            <button 
-              onClick={() => { signOut(); closeMenu(); }}
-              className="btn nav-cta"
-              style={{ width: "250px" }}
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <Link href="/login" onClick={closeMenu}>Login</Link>
-            <Link href="/signup" onClick={closeMenu} className="btn nav-cta" style={{ width: "250px" }}>Sign Up</Link>
-          </>
-        )}
+        <Link 
+          href="/#dishes" 
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              document.getElementById("dishes")?.scrollIntoView({ behavior: "smooth" });
+            }
+            closeMenu();
+          }}
+        >
+          Browse Menu
+        </Link>
+        <Link href="/about" onClick={closeMenu} className={pathname === "/about" ? "active" : ""}>Our Story</Link>
+        <Link href="/contact" onClick={closeMenu} className={pathname === "/contact" ? "active" : ""}>Contact</Link>
+        <Link href="/checkout" onClick={closeMenu} className={pathname === "/checkout" ? "active" : ""}>My Cart (3)</Link>
+
+        
+        <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {status === "authenticated" ? (
+            <>
+              <div style={{ background: "rgba(255,255,255,0.05)", padding: "20px", borderRadius: "20px", border: "1px solid var(--glass-border)" }}>
+                <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "5px" }}>Logged in as</p>
+                <p style={{ color: "#fff", fontWeight: "800", fontSize: "1.2rem" }}>{session.user.name}</p>
+              </div>
+              <button 
+                onClick={() => { signOut(); closeMenu(); }}
+                className="btn nav-cta"
+                style={{ width: "100%", padding: "1.2rem !important" }}
+              >
+                Logout Account
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/login" onClick={closeMenu} style={{ textAlign: "center", border: "none", fontSize: "1.1rem" }}>Already have an account? <span style={{ color: "var(--primary)" }}>Login</span></Link>
+              <Link href="/signup" onClick={closeMenu} className="btn nav-cta" style={{ width: "100%", textAlign: "center", padding: "1.2rem !important" }}>Create Account</Link>
+            </>
+          )}
+        </div>
       </div>
+
 
       {/* Overlay */}
       <div 

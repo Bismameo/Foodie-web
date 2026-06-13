@@ -56,63 +56,63 @@ export default function SignupPage() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-          <h1 style={{ color: "var(--primary-color)", fontSize: "2.5rem", fontWeight: "800", marginBottom: "0.5rem" }}>Join foodie</h1>
-          <p style={{ color: "var(--text-muted)" }}>Create an account to start ordering</p>
+        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <h1 style={{ color: "var(--primary)", fontSize: "2.8rem", fontWeight: "800", marginBottom: "0.8rem", letterSpacing: "-1px" }}>Join foodie</h1>
+          <p style={{ color: "var(--text-muted)", fontSize: "1.1rem" }}>Create an account to start ordering</p>
         </div>
 
         {error && (
-          <div style={{ background: "rgba(255, 71, 87, 0.1)", color: "#ff4757", padding: "1rem", borderRadius: "12px", marginBottom: "1.5rem", fontSize: "0.9rem", border: "1px solid rgba(255, 71, 87, 0.2)" }}>
+          <div style={{ background: "rgba(255, 71, 87, 0.1)", color: "#ff4757", padding: "1.2rem", borderRadius: "20px", marginBottom: "2rem", fontSize: "0.95rem", border: "1px solid rgba(255, 71, 87, 0.2)", textAlign: "center", fontWeight: "600" }}>
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: "1.5rem" }}>
-            <label style={{ display: "block", color: "var(--text-main)", marginBottom: "0.5rem", fontWeight: "600" }}>Full Name</label>
+            <label style={{ display: "block", color: "var(--text-main)", marginBottom: "0.8rem", fontWeight: "700", fontSize: "0.9rem", marginLeft: "1rem" }}>Full Name</label>
             <input
               type="text"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
-              style={{ width: "100%", padding: "1rem", borderRadius: "12px", background: "var(--bg-main)", border: "1px solid rgba(255,255,255,0.1)", color: "white", outline: "none" }}
+              className="auth-input"
             />
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
-            <label style={{ display: "block", color: "var(--text-main)", marginBottom: "0.5rem", fontWeight: "600" }}>Email Address</label>
+            <label style={{ display: "block", color: "var(--text-main)", marginBottom: "0.8rem", fontWeight: "700", fontSize: "0.9rem", marginLeft: "1rem" }}>Email Address</label>
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@example.com"
-              style={{ width: "100%", padding: "1rem", borderRadius: "12px", background: "var(--bg-main)", border: "1px solid rgba(255,255,255,0.1)", color: "white", outline: "none" }}
+              className="auth-input"
             />
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
-            <label style={{ display: "block", color: "var(--text-main)", marginBottom: "0.5rem", fontWeight: "600" }}>Password</label>
+            <label style={{ display: "block", color: "var(--text-main)", marginBottom: "0.8rem", fontWeight: "700", fontSize: "0.9rem", marginLeft: "1rem" }}>Password</label>
             <input
               type="password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              style={{ width: "100%", padding: "1rem", borderRadius: "12px", background: "var(--bg-main)", border: "1px solid rgba(255,255,255,0.1)", color: "white", outline: "none" }}
+              className="auth-input"
             />
           </div>
 
           <div style={{ marginBottom: "2rem" }}>
-            <label style={{ display: "block", color: "var(--text-main)", marginBottom: "0.5rem", fontWeight: "600" }}>Confirm Password</label>
+            <label style={{ display: "block", color: "var(--text-main)", marginBottom: "0.8rem", fontWeight: "700", fontSize: "0.9rem", marginLeft: "1rem" }}>Confirm Password</label>
             <input
               type="password"
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="••••••••"
-              style={{ width: "100%", padding: "1rem", borderRadius: "12px", background: "var(--bg-main)", border: "1px solid rgba(255,255,255,0.1)", color: "white", outline: "none" }}
+              className="auth-input"
             />
           </div>
 
@@ -125,11 +125,11 @@ export default function SignupPage() {
           </button>
         </form>
 
-        <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <p style={{ color: "var(--text-muted)" }}>
+        <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.95rem" }}>
             Already have an account?{" "}
             <Link href="/login" className="auth-link">
-              Login
+              Login to Account
             </Link>
           </p>
         </div>

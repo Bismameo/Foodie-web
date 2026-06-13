@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+import { useCategory } from "./Providers";
+
 export default function HomePage() {
-  const [category, setCategory] = useState("delivery");
+  const { category } = useCategory();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -23,70 +25,43 @@ export default function HomePage() {
 
   return (
     <div className="landing-page">
-      {/* Category Selection Sub-Nav */}
-      <div style={{ background: "rgba(255,255,255,0.03)", borderBottom: "1px solid var(--glass-border)", position: "sticky", top: "80px", zIndex: 900, backdropFilter: "blur(10px)" }}>
-        <div className="container">
-          <div style={{ display: "flex", gap: "2rem", padding: "1rem 0" }}>
-            <button 
-              onClick={() => setCategory("delivery")}
-              style={{ background: "none", border: "none", color: category === "delivery" ? "var(--primary)" : "var(--text-muted)", fontWeight: "800", cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", gap: "10px", padding: "0.5rem 1rem", borderRadius: "100px", background: category === "delivery" ? "rgba(var(--primary-rgb), 0.1)" : "transparent", transition: "all 0.3s" }}
-            >
-              🛵 Delivery
-            </button>
-            <button 
-              onClick={() => setCategory("pickup")}
-              style={{ background: "none", border: "none", color: category === "pickup" ? "var(--primary)" : "var(--text-muted)", fontWeight: "800", cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", gap: "10px", padding: "0.5rem 1rem", borderRadius: "100px", background: category === "pickup" ? "rgba(var(--primary-rgb), 0.1)" : "transparent", transition: "all 0.3s" }}
-            >
-              🛍️ Pick-up
-            </button>
-            <button 
-              onClick={() => setCategory("shops")}
-              style={{ background: "none", border: "none", color: category === "shops" ? "var(--primary)" : "var(--text-muted)", fontWeight: "800", cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", gap: "10px", padding: "0.5rem 1rem", borderRadius: "100px", background: category === "shops" ? "rgba(var(--primary-rgb), 0.1)" : "transparent", transition: "all 0.3s" }}
-            >
-              🏪 Shops
-            </button>
-          </div>
-        </div>
-      </div>
-
       {category === "delivery" && (
         <>
           {/* Hero Section */}
-          <section className="hero-video-container" style={{ position: "relative", overflow: "hidden" }}>
-            <img src="/assets/burger.jpg" alt="Delicious Food Background" className="hero-video" style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", zIndex: 1 }} />
-            <div className="hero-overlay" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}></div>
+          <section className="hero-section">
+            <div className="hero-video-container">
+              <img src="/assets/burger.jpg" alt="Delicious Food Background" className="hero-video" />
+              <div className="hero-overlay"></div>
+            </div>
             
-            <div className="container" style={{ position: "relative", zIndex: 10, height: "100%", display: "flex", alignItems: "center" }}>
-              <div className="hero-content reveal" style={{ maxWidth: "800px" }}>
-                <div className="hero-badge" style={{ padding: "0.8rem 1.5rem", borderRadius: "100px", fontWeight: "700", display: "inline-flex", alignItems: "center", gap: "10px", marginBottom: "2rem", color: "var(--primary)" }}>
-                  <span style={{ fontSize: "1.2rem" }}>🚀</span> Fast & Fresh Delivery
-                </div>
-                <h1 style={{ fontWeight: "800", lineHeight: "1.0", marginBottom: "2rem" }}>
+            <div className="container">
+              <div className="hero-content reveal">
+                <h1>
                   The food you love, <br />
-                  <span style={{ color: "var(--primary)" }}>delivered fast.</span>
+                  <span>delivered fast.</span>
                 </h1>
-                <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.7)", marginBottom: "3.5rem", maxWidth: "600px", fontWeight: "500" }}>
+                <p>
                   Your favorite meal from the best restaurants delivered to your doorstep in minutes. Fresh, hot, and reliable.
                 </p>
                 
-                <div className="location-search-container" style={{ display: "flex", gap: "10px", background: "rgba(255,255,255,0.05)", backdropFilter: "blur(20px)", padding: "10px", borderRadius: "100px" }}>
-                  <div style={{ flex: 1, display: "flex", alignItems: "center", paddingLeft: "1.5rem" }}>
-                    <span style={{ fontSize: "1.5rem", marginRight: "12px" }}>📍</span>
-                    <input type="text" placeholder="Enter your delivery location..." style={{ background: "transparent", border: "none", color: "white", width: "100%", outline: "none", fontSize: "1.1rem", fontWeight: "500" }} />
+                <div className="location-search-container">
+                  <div className="search-input-wrapper">
+                    <span>📍</span>
+                    <input type="text" placeholder="Enter your delivery location..." />
                   </div>
-                  <button className="btn nav-cta" style={{ borderRadius: "100px !important", padding: "1rem 2.5rem !important" }}>Find Food</button>
+                  <button className="btn nav-cta hero-btn">Find Food</button>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Featured Dishes */}
-          <section id="dishes" className="section-padding" style={{ padding: "10rem 0" }}>
+          <section id="dishes" className="section-padding">
             <div className="container">
-              <div className="section-title reveal" style={{ marginBottom: "6rem" }}>
-                <h2 style={{ fontSize: "3.5rem", fontWeight: "800", marginBottom: "1.5rem", letterSpacing: "-1.5px" }}>Featured Specialties</h2>
-                <div style={{ width: "100px", height: "5px", background: "var(--primary)", borderRadius: "10px" }}></div>
-                <p style={{ marginTop: "2rem", color: "var(--text-muted)", fontSize: "1.25rem", maxWidth: "500px" }}>
+              <div className="section-title reveal">
+                <h2>Featured Specialties</h2>
+                <div className="underline"></div>
+                <p>
                   Hand-picked dishes that define the foodie experience.
                 </p>
               </div>
@@ -128,64 +103,116 @@ export default function HomePage() {
       )}
 
       {category === "pickup" && (
-        <section className="section-padding" style={{ padding: "8rem 0" }}>
-          <div className="container">
-            <div className="reveal" style={{ background: "linear-gradient(135deg, var(--bg-card) 0%, var(--bg-main) 100%)", padding: "6rem", borderRadius: "50px", border: "1px solid var(--glass-border)", marginBottom: "6rem", textAlign: "center" }}>
-              <h1 style={{ fontSize: "4rem", fontWeight: "800", marginBottom: "1.5rem" }}>Fastest <span style={{ color: "var(--primary)" }}>Pick-up</span></h1>
-              <p style={{ fontSize: "1.25rem", color: "var(--text-muted)", maxWidth: "600px", margin: "0 auto" }}>Order ahead and skip the line at your favorite local restaurants.</p>
+        <>
+          <section className="hero-section">
+            <div className="hero-video-container">
+              <img src="/assets/burger.jpg" alt="Delicious Food Background" className="hero-video" />
+              <div className="hero-overlay"></div>
             </div>
+            <div className="container">
+              <div className="hero-content reveal">
+                <h1>
+                  Fastest <br />
+                  <span>Pick-up</span>
+                </h1>
+                <p>
+                  Order ahead from your favorite local restaurants and grab your meal on the go. No waiting, just fresh food.
+                </p>
+              </div>
+            </div>
+          </section>
 
-            <div className="product-grid">
-              {/* Static Pick-up Items for Demo */}
-              {[1, 2, 3].map((item) => (
-                <div key={item} className="food-card reveal" style={{ padding: "1.5rem" }}>
-                  <div style={{ position: "relative", height: "200px", borderRadius: "30px", overflow: "hidden", marginBottom: "1.5rem" }}>
-                    <img src={`/assets/burger.jpg`} alt="Food" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                    <div style={{ position: "absolute", top: "1rem", right: "1rem", background: "var(--primary)", color: "#000", padding: "0.5rem 1rem", borderRadius: "100px", fontSize: "0.8rem", fontWeight: "800" }}>
-                      15 min
+          <section className="section-padding">
+            <div className="container">
+              <div className="section-title reveal">
+                <h2>Top Pick-up Spots</h2>
+                <div className="underline"></div>
+                <p>Discover the best restaurants near you offering instant pick-up.</p>
+              </div>
+
+              <div className="product-grid">
+                {[
+                  { name: "Urban Grill", time: "10 min", dist: "0.8 km", rating: "4.8", img: "/assets/burger.jpg", tag: "Burgers & Steaks" },
+                  { name: "Sushi Harbor", time: "15 min", dist: "1.2 km", rating: "4.9", img: "/assets/sushi.jpg", tag: "Japanese Cuisine" },
+                  { name: "Taco Haven", time: "12 min", dist: "0.5 km", rating: "4.7", img: "/assets/tacos.jpg", tag: "Mexican Street Food" }
+                ].map((shop, i) => (
+                  <div key={i} className="food-card reveal" style={{ padding: "1.5rem" }}>
+                    <div style={{ position: "relative", height: "220px", borderRadius: "30px", overflow: "hidden", marginBottom: "1.5rem" }}>
+                      <img src={shop.img} alt={shop.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      <div style={{ position: "absolute", top: "1rem", right: "1rem", background: "var(--primary)", color: "#000", padding: "0.5rem 1rem", borderRadius: "100px", fontSize: "0.8rem", fontWeight: "800", boxShadow: "0 4px 12px rgba(0,0,0,0.2)" }}>
+                        {shop.time}
+                      </div>
                     </div>
+                    <h3 style={{ fontSize: "1.5rem", fontWeight: "800", marginBottom: "0.5rem" }}>{shop.name}</h3>
+                    <p style={{ color: "var(--primary)", fontSize: "0.85rem", fontWeight: "700", marginBottom: "0.5rem", textTransform: "uppercase", letterSpacing: "1px" }}>{shop.tag}</p>
+                    <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "2rem" }}>{shop.dist} away • ⭐ {shop.rating}</p>
+                    <button className="btn nav-cta" style={{ width: "100%" }}>Order for Pick-up</button>
                   </div>
-                  <h3 style={{ fontSize: "1.4rem", fontWeight: "800", marginBottom: "0.5rem" }}>Restaurant {item}</h3>
-                  <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "1.5rem" }}>0.5 km away • ⭐ 4.5</p>
-                  <button className="btn nav-cta" style={{ width: "100%" }}>Order for Pick-up</button>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </>
       )}
 
       {category === "shops" && (
-        <section className="section-padding" style={{ padding: "8rem 0" }}>
-          <div className="container">
-            <div className="reveal" style={{ background: "var(--bg-card)", padding: "6rem", borderRadius: "50px", border: "1px solid var(--glass-border)", marginBottom: "6rem", textAlign: "center" }}>
-              <h1 style={{ fontSize: "4rem", fontWeight: "800", marginBottom: "1.5rem" }}>Local <span style={{ color: "var(--primary)" }}>Shops</span></h1>
-              <p style={{ fontSize: "1.25rem", color: "var(--text-muted)", maxWidth: "600px", margin: "0 auto" }}>Everything you need from your favorite neighborhood stores.</p>
+        <>
+          <section className="hero-section">
+            <div className="hero-video-container">
+              <img src="/assets/karahi.jpg" alt="Local Shops Background" className="hero-video" />
+              <div className="hero-overlay"></div>
             </div>
+            <div className="container">
+              <div className="hero-content reveal">
+                <h1>
+                  Your Favorite <br />
+                  <span>Local Shops</span>
+                </h1>
+                <p>
+                  Everything you need from your neighborhood stores. Fresh groceries, premium ingredients, and more.
+                </p>
+              </div>
+            </div>
+          </section>
 
-            <div className="product-grid">
-              {/* Static Shop Items for Demo */}
-              {[1, 2, 3].map((item) => (
-                <div key={item} className="food-card reveal" style={{ padding: "1.5rem" }}>
-                  <div style={{ position: "relative", height: "200px", borderRadius: "30px", overflow: "hidden", marginBottom: "1.5rem" }}>
-                    <img src={`/assets/karahi.jpg`} alt="Shop" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <section className="section-padding">
+            <div className="container">
+              <div className="section-title reveal">
+                <h2>Browse Neighborhood</h2>
+                <div className="underline"></div>
+                <p>Explore specialty stores and local boutiques near you.</p>
+              </div>
+
+              <div className="product-grid">
+                {[
+                  { name: "The Bread Basket", img: "/assets/bread.jpg", desc: "Artisan Sourdough • Croissants • Fresh Bread" },
+                  { name: "Seafood Direct", img: "/assets/seafood.jpg", desc: "Fresh Catch • Prawns • Whole Fish" },
+                  { name: "Gourmet Pasta House", img: "/assets/pasta.jpg", desc: "Fresh Ravioli • Tagliatelle • Pasta Sauces" }
+                ].map((shop, i) => (
+                  <div key={i} className="food-card reveal" style={{ padding: "1.5rem" }}>
+                    <div style={{ position: "relative", height: "220px", borderRadius: "30px", overflow: "hidden", marginBottom: "1.5rem" }}>
+                      <img src={shop.img} alt={shop.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
+                    <h3 style={{ fontSize: "1.5rem", fontWeight: "800", marginBottom: "0.5rem" }}>{shop.name}</h3>
+                    <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "2rem", lineHeight: "1.5" }}>{shop.desc}</p>
+                    <button className="btn nav-cta" style={{ width: "100%" }}>Browse Shop</button>
                   </div>
-                  <h3 style={{ fontSize: "1.4rem", fontWeight: "800", marginBottom: "0.5rem" }}>Gourmet Shop {item}</h3>
-                  <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginBottom: "1.5rem" }}>Specialty Ingredients • Premium Quality</p>
-                  <button className="btn nav-cta" style={{ width: "100%" }}>Shop Now</button>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </>
       )}
 
+
+
       {/* How It Works Section */}
-      <section className="section-padding reveal" style={{ padding: "5rem 0 10rem" }}>
+      <section className="section-padding reveal">
         <div className="container">
-          <div className="section-title" style={{ textAlign: "center", marginBottom: "6rem" }}>
-            <h2 style={{ fontSize: "3rem", fontWeight: "800" }}>How it Works</h2>
-            <p style={{ color: "var(--text-muted)", marginTop: "1rem" }}>Simple, fast, and reliable delivery.</p>
+          <div className="section-title" style={{ textAlign: "center" }}>
+            <h2>How it Works</h2>
+            <div className="underline" style={{ margin: "0 auto 30px" }}></div>
+            <p style={{ margin: "0 auto" }}>Simple, fast, and reliable delivery.</p>
           </div>
           
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "3rem" }}>

@@ -283,7 +283,7 @@ export const products = [
     id: 41,
     title: "Blueberry Pancakes",
     price: 10.50,
-    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?q=80&w=1980&auto=format&fit=crop",
+    image: "/assets/dessert.jpg",
     description: "Fluffy pancakes topped with fresh blueberries and syrup."
   },
   {
@@ -311,7 +311,7 @@ export const products = [
     id: 45,
     title: "Seafood Paella",
     price: 24.50,
-    image: "https://images.unsplash.com/photo-1534080564607-317f53f89981?q=80&w=2070&auto=format&fit=crop",
+    image: "/assets/seafood.jpg",
     description: "Spanish rice dish with fresh mussels, shrimp, and squid."
   },
   {
